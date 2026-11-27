@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Static Website Test</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 100%);
+    font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    color:#fff;text-align:center;padding:24px;
+  }
+  .card{
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:16px;padding:48px 40px;
+    max-width:520px;width:100%;
+    box-shadow:0 20px 60px rgba(0,0,0,.4);
+  }
+  .dot{
+    width:14px;height:14px;border-radius:50%;background:#22c55e;
+    display:inline-block;margin-right:10px;
+    box-shadow:0 0 0 6px rgba(34,197,94,.2);
+    animation:pulse 1.8s infinite;
+  }
+  @keyframes pulse{50%{box-shadow:0 0 0 12px rgba(34,197,94,.05)}}
+  .label{font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:#93c5fd}
+  h1{font-size:30px;margin:18px 0 10px;font-weight:600}
+  p{color:#cbd5e1;font-size:16px;line-height:1.6}
+  .meta{
+    margin-top:28px;padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.12);
+    font-size:13px;color:#94a3b8;
+    font-family:ui-monospace,Consolas,monospace;
+    word-break:break-all;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="label"><span class="dot"></span>Static Website Test</div>
+    <h1>Page loaded successfully</h1>
+    <p>This is a controlled test endpoint.<br>If you can read this, the static website is reachable.</p>
+    <div class="meta">
+      host: <span id="h"></span><br>
+      time: <span id="t"></span><br>
+      nonce: <span id="n"></span>
+    </div>
+  </div>
+<script>
+  document.getElementById('h').textContent = location.hostname;
+  document.getElementById('t').textContent = new Date().toISOString();
+  document.getElementById('n').textContent = Math.random().toString(36).slice(2,10).toUpperCase();
+</script>
+</body>
+</html>
